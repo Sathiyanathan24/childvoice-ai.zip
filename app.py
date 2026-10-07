@@ -25,8 +25,15 @@ st.set_page_config(page_title="ChildVoice AI", page_icon="🎙️", layout="wide
 # ----------------------------------------------------------------------------
 from pathlib import Path
 
-CSS_PATH = Path(__file__).parent / "styles" / "style.css"
-st.markdown(f"<style>{CSS_PATH.read_text(encoding='utf-8')}</style>", unsafe_allow_html=True)
+import os
+
+try:
+    css_path = Path(__file__).parent / "styles" / "style.css"
+    with open(css_path, encoding='utf-8') as f:
+        css_content = f.read()
+    st.markdown(f"<style>{css_content}</style>", unsafe_allow_html=True)
+except FileNotFoundError:
+    print(f"CSS file not found at {css_path}")
 
 
 def H(html: str):
