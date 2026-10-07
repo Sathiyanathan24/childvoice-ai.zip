@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+.DS_Store
+.streamlit/secrets.toml
+*.wav
+*.mp3
+*.m4a
+models/*.h5
+models/*.keras
